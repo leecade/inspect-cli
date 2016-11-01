@@ -1,0 +1,6 @@
+{
+  "presets": [
+    "fe"
+  ],
+  "compact": true
+}

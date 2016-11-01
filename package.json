@@ -1,0 +1,67 @@
+{
+  "name": "inspect-cli",
+  "version": "1.0.0",
+  "description": "DEBUG node cli be wrapped in inspect process",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "update": "updtr",
+    "clean": "rimraf lib",
+    "babel:build": "babel src --out-dir lib",
+    "babel:watch": "babel src --out-dir lib --watch",
+    "start": "npm run clean && npm run babel:build",
+    "dev": "npm run babel:watch",
+    "precommit": "git diff --name-only --cached --relative | grep '\\.jsx\\?$' | xargs standard | snazzy; if [ $? -ne 0 ]; then exit 1; fi"
+  },
+  "bin": {
+    "inspect": "./bin/inspect.js"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "pre-commit": {
+    "run": [
+      "precommit"
+    ],
+    "silent": true
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "global": [
+      "fetch",
+      "alert"
+    ],
+    "ignore": [
+      "bin/",
+      "lib/",
+      "mock/",
+      "src/plugins/",
+      "example/dist/",
+      "node_modules/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leecade/inspect-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leecade/inspect-cli/issues"
+  },
+  "homepage": "https://github.com/leecade/inspect-cli#readme",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-fe": "^1.0.14",
+    "chalk": "^1.1.3",
+    "detect-port": "^1.0.5",
+    "rimraf": "^2.5.4",
+    "standard": "^8.5.0",
+    "updtr": "^0.2.1",
+    "which": "^1.2.11"
+  }
+}
