@@ -54,7 +54,7 @@
   "homepage": "https://github.com/leecade/inspect-cli#readme",
   "dependencies": {
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.1.0",
+    "babel-eslint": "^8.2.3",
     "babel-polyfill": "^6.16.0",
     "babel-preset-fe": "^1.0.14",
     "chalk": "^1.1.3",
